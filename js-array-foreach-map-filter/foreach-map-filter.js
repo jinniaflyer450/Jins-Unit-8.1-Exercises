@@ -43,7 +43,12 @@ Examples:
 
 */
 function showFirstAndLast(arr){
-    
+    let firstLastArr = []
+    arr.forEach(function(str){
+        let firstLastPair = `${str[0]}${str[str.length - 1]}`
+        firstLastArr.push(firstLastPair)
+    })
+    return firstLastArr
 }
 
 /*
@@ -56,7 +61,10 @@ Examples:
 
 */
 function addKeyAndValue(arr,key,value){
-    
+    arr.forEach(function(obj){
+        obj[key] = value
+    })
+    return arr
 }
 
 /*
@@ -70,7 +78,49 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+    let aCount = 0
+    let eCount = 0
+    let iCount = 0
+    let oCount = 0
+    let uCount = 0
+    let vowelsObj = {}
+    let lowerStr = str.toLowerCase()
+    let lowerStrArr = Array.from(lowerStr)
+    lowerStrArr.forEach(function(char){
+        if(char === 'a'){
+            aCount++
+        }
+        else if(char === 'e'){
+            eCount++
+        }
+        else if(char === 'i'){
+            iCount++
+        }
+        else if(char === 'o'){
+            oCount++
+        }
+        else if(char === 'u'){
+            uCount++
+        }
+        else{}
+    })
+    if(aCount > 0){
+        vowelsObj['a'] = aCount
+    }
+    if(eCount > 0){
+        vowelsObj['e'] = eCount
+    }
+    if(iCount > 0){
+        vowelsObj['i'] = iCount
+    }
+    if(oCount > 0){
+        vowelsObj['o'] = oCount
+    }
+    if(uCount > 0){
+        vowelsObj['u'] = uCount
+    }
+
+    return vowelsObj
 }
 
 /*
@@ -81,7 +131,12 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+function doubleValuesWithMap(arr) {
+    let doubleValuesWithMapArr = arr.map(function(val){
+        return val * 2
+    })
+    return doubleValuesWithMapArr
+}
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -92,7 +147,10 @@ Examples:
 */
 
 function valTimesIndex(arr){
-    
+    let valTimesIndexArr = arr.map(function(val, idx){
+        return val * idx
+    })
+    return valTimesIndexArr
 }
 
 /*
@@ -103,7 +161,10 @@ Examples:
 */
 
 function extractKey(arr, key){
-    
+    let keyArr = arr.map(function(obj){
+        return obj[key]
+    })
+    return keyArr
 }
 
 /*
@@ -114,7 +175,13 @@ Examples:
 */
 
 function extractFullName(arr){
-    
+    let fullNameArr = arr.map(function(obj){
+        let firstName = obj['first']
+        let lastName = obj['last']
+        let fullName = `${firstName} ${lastName}`
+        return fullName
+    })
+    return fullNameArr
 }
 
 /*
